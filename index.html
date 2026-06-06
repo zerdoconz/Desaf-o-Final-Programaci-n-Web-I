@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulador web de abastecimiento y economía familiar">
+    <title>Simulador de Abastecimiento y Economía Familiar</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <!-- Header Principal -->
+    <header class="header-principal">
+        <div class="container">
+            <h1>Proyecto Final, Simulador de Crisis en Bolivia  </h1>
+        </div>
+    </header>
+
+    <!-- Navegación -->
+    <nav class="navegacion-principal">
+        <div class="container">
+            <ul class="menu">
+                <li><a href="#inicio" class="activo">Inicio</a></li>
+                <li><a href="#contexto">Contexto</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+                <li><a href="#casos-estudio">Casos de Estudio</a></li>
+                <li><a href="#conclusiones">Conclusiones</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="contenido-principal">
+        
+        <!-- Sección Inicio -->
+        <section id="inicio" class="seccion inicio">
+            <div class="container">
+                <h2>Propósito del Simulador</h2>
+                <p class="texto-destacado">
+                    Esta herramienta nace con el propósito de empoderar a las familias mediante información clara y proyecciones basadas en datos reales. 
+                    Permite comprender cómo factores como el abastecimiento de carburantes y el incremento de precios afectan la economía diaria, 
+                    y proporciona un espacio para explorar estrategias de optimización de recursos.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección Contexto -->
+
+        <section id="contexto" class="seccion contexto">
+            <div class="container">
+                <h2>Contexto Actual</h2>
+                
+                <!-- Imágenes del contexto -->
+                <div class="galeria-contexto">
+                    <div class="imagen-contexto">
+                        <!-- ESPACIO PARA IMAGEN 1 - Reemplaza src con tu imagen -->
+                        <img src="imagenes\camion.jpg" alt="Situación actual de abastecimiento en Bolivia" class="img-responsive">
+                        <p class="leyenda-imagen">Figura 1: Abastecimiento de carburantes</p>
+                    </div>
+                    <div class="imagen-contexto">
+                        <!-- ESPACIO PARA IMAGEN 2 - Reemplaza src con tu imagen -->
+                        <img src="imagenes\descarga (12).jpg" alt="Impacto en la economía familiar" class="img-responsive">
+                        <p class="leyenda-imagen">Figura 2: Economía familiar y canasta básica</p>
+                    </div>
+                </div>
+
+                <p>
+                    Bolivia atraviesa un período de transformación económica que afecta directamente el día a día. 
+                    Este simulador se centra en dos factores críticos:
+                </p>
+                <div class="lista-contexto">
+                    <div class="item-contexto">
+                        <span class="icono">⛽</span>
+                        <div>
+                            <h4>Abastecimiento de Carburantes</h4>
+                            <p>Limitaciones en la disponibilidad que requieren una planificación estricta del consumo y reabastecimiento.</p>
+                        </div>
+                    </div>
+                    <div class="item-contexto">
+                        <span class="icono">🛒</span>
+                        <div>
+                            <h4>Canasta Familiar y Presupuesto</h4>
+                            <p>Incremento progresivo en los precios de alimentos básicos, exigiendo una gestión cuidadosa del presupuesto familiar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Simulador -->
+        <section id="simulador" class="seccion simulador">
+            <div class="container">
+                <h2>Simulador Interactivo</h2>
+                <p class="descripcion-seccion">Selecciona el escenario que deseas evaluar e ingresa los datos solicitados.</p>
+
+                <!-- Tabs de Navegación -->
+                <div class="tabs-navegacion">
+                    <button class="tab-btn activo" data-tab="tab-carburantes">⛽ Carburantes</button>
+                    <button class="tab-btn" data-tab="tab-rumor">⚠️ Rumor de Escasez</button>
+                </div>
+
+                <!-- TAB 1: Escenario A (Carburantes) -->
+                <div id="tab-carburantes" class="tab-content activo">
+                    <div class="grid-dos-columnas">
+                        <div class="columna">
+                            <h3>Simulador de Abastecimiento</h3>
+                            <form id="form-carburantes" class="formulario">
+                                <div class="grupo-input">
+                                    <label for="reserva-inicial">Reserva Inicial (litros):</label>
+                                    <input type="number" id="reserva-inicial" min="0" step="100" placeholder="Ej: 10000" required>
+                                </div>
+                                <div class="grupo-input">
+                                    <label for="consumo-diario">Consumo Diario Estimado (litros/día):</label>
+                                    <input type="number" id="consumo-diario" min="0" step="50" placeholder="Ej: 1200" required>
+                                </div>
+                                <div class="grupo-input">
+                                    <label for="reabastecimiento">Reabastecimiento Diario (litros/día):</label>
+                                    <input type="number" id="reabastecimiento" min="0" step="50" placeholder="Ej: 300" required>
+                                </div>
+                                <div class="grupo-input">
+                                    <label for="nivel-critico">Nivel Crítico de Reserva (litros):</label>
+                                    <input type="number" id="nivel-critico" min="0" step="100" placeholder="Ej: 2000" required>
+                                </div>
+                                <div class="botones-accion">
+                                    <button type="submit" class="btn btn-primario">Calcular Proyección</button>
+                                    <button type="reset" class="btn btn-secundario">Limpiar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="columna">
+                            <div class="resultados-contenedor" id="resultados-carburantes">
+                                <h3>Resultados de la Proyección</h3>
+                                <div class="resultado-vacio">
+                                    <p>Ingresa los datos y presiona "Calcular" para ver los resultados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: Escenario E (Rumor de Escasez) -->
+                <div id="tab-rumor" class="tab-content">
+                    <div class="grid-dos-columnas">
+                        <div class="columna">
+                            <h3>Simulador de Rumor de Escasez</h3>
+                            <form id="form-rumor" class="formulario">
+                                <div class="grupo-input">
+                                    <label for="demanda-normal">Demanda normal (unidades por persona/familia):</label>
+                                    <input type="number" id="demanda-normal" min="0" step="1" placeholder="Ej: 100" required>
+                                </div>
+                                <div class="grupo-input">
+                                    <label for="numero-personas">Número de personas o familias:</label>
+                                    <input type="number" id="numero-personas" min="1" step="1" placeholder="Ej: 1" required>
+                                </div>
+                                <div class="grupo-input">
+                                    <label for="porcentaje-aumento">Porcentaje de aumento por rumor (%):</label>
+                                    <input type="number" id="porcentaje-aumento" min="0" step="1" placeholder="Ej: 40" required>
+                                </div>
+                                <div class="grupo-input">
+                                    <label for="stock-disponible">Stock disponible total (unidades):</label>
+                                    <input type="number" id="stock-disponible" min="0" step="1" placeholder="Ej: 120" required>
+                                </div>
+                                <div class="botones-accion">
+                                    <button type="submit" class="btn btn-primario">Calcular Impacto</button>
+                                    <button type="reset" class="btn btn-secundario">Limpiar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="columna">
+                            <div class="resultados-contenedor" id="resultados-rumor">
+                                <div class="resultado-vacio">
+                                    <p>Ingresa los datos y presiona "Calcular" para ver el impacto del rumor y el gráfico.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Sección Casos de Estudio -->
+        <section id="casos-estudio" class="seccion casos-estudio">
+            <div class="container">
+                <h2>Casos de Estudio para Probar</h2>
+                <p class="descripcion-seccion">Utiliza estos datos de prueba para verificar el correcto funcionamiento del simulador.</p>
+
+                <div class="grid-casos">
+                    <!-- Caso 1 -->
+                    <div class="tarjeta-caso">
+                        <h3>📋 Caso 1: Reserva de Carburante</h3>
+                        <table class="tabla-caso">
+                            <tr><th>Dato</th><th>Valor</th></tr>
+                            <tr><td>Reserva inicial</td><td>10,000 litros</td></tr>
+                            <tr><td>Consumo diario</td><td>1,200 litros</td></tr>
+                            <tr><td>Reabastecimiento diario</td><td>300 litros</td></tr>
+                            <tr><td>Nivel crítico</td><td>2,000 litros</td></tr>
+                        </table>
+                        <p class="resultado-esperado"><strong>Resultado Esperado:</strong> La reserva llegará al nivel crítico en aproximadamente 8-9 días.</p>
+                        <button class="btn btn-pequeno" onclick="cargarCasoEstudio(1)">Probar este caso</button>
+                    </div>
+
+                    <!-- Caso 2: Rumor de Escasez -->
+                    <div class="tarjeta-caso">
+                        <h3>📋 Caso 2: Rumor de Escasez</h3>
+                        <table class="tabla-caso">
+                            <tr><th>Dato</th><th>Valor</th></tr>
+                            <tr><td>Demanda normal (por persona)</td><td>100 unidades</td></tr>
+                            <tr><td>Número de personas/familias</td><td>1</td></tr>
+                            <tr><td>Aumento por rumor</td><td>40%</td></tr>
+                            <tr><td>Stock disponible total</td><td>120 unidades</td></tr>
+                        </table>
+                        <p class="resultado-esperado"><strong>Resultado Esperado:</strong> Nueva demanda: 140 unidades. El stock NO alcanza. Faltan 20 unidades para cubrir la demanda.</p>
+                        <button class="btn btn-pequeno" onclick="cargarCasoEstudio(2)">Probar este caso</button>
+                    </div>
+                                    <!-- Imágenes adicionales de casos de estudio -->
+                <div class="galeria-casos">
+                    <div class="imagen-caso">
+                        <!-- ESPACIO PARA IMAGEN 3 - Caso de Carburantes -->
+                        <img src="imagenes\fila.jpg" alt="Gráfico de consumo de carburantes" class="img-responsive">
+                        <p class="leyenda-imagen">Caso 1: Proyección de reserva de carburantes</p>
+                    </div>
+                    <div class="imagen-caso">
+                        <!-- ESPACIO PARA IMAGEN 4 - Caso de Rumor -->
+                        <img src="imagenes\prod.jpg" alt="Demanda por rumor de escasez" class="img-responsive">
+                        <p class="leyenda-imagen">Caso 2: Impacto del rumor en el abastecimiento</p>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Sección Conclusiones -->
+        <section id="conclusiones" class="seccion conclusiones">
+            <div class="container">
+                <h2>Conclusiones y Reflexiones</h2>
+                <div class="grid-dos-columnas">
+                    <div class="columna">
+                        <div class="tarjeta-conclusion">
+                            <h3>📚 Lo Aprendido</h3>
+                            <p>Este simulador permite comprender de manera práctica cómo los factores externos afectan la economía. Hemos aprendido a proyectar el consumo de recursos limitados y a planificar compras con presupuestos restringidos, tomando decisiones basadas en datos reales.</p>
+                        </div>
+                    </div>
+                    <div class="columna">
+                        <div class="tarjeta-conclusion">
+                            <h3>🌈 Utilidad del Modelo</h3>
+                            <p>Esta herramienta transforma datos abstractos en información accionable. Permite a las familias anticipar problemas, optimizar el uso de sus recursos limitados y comunicar de manera clara su situación económica para buscar soluciones comunitarias o familiares.</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Simplificado -->
+    <footer class="footer-principal">
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>Enlace al Repositorio Git:</strong> <a href="https://github.com/tu-usuario/tu-repositorio" target="_blank">github.com/tu-usuario/tu-repositorio</a></p>
+                <p><strong>Enlace a la Página Publicada:</strong> <a href="https://tu-usuario.github.io/tu-repositorio" target="_blank">tu-usuario.github.io/tu-repositorio</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 - Proyecto Final de Programacion Web I</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
